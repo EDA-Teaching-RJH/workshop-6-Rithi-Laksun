@@ -30,9 +30,13 @@ def process_list(input_list):
     try:
         input_list = input("Write the numbers you want to add to the list with spaces: ")
         string_list =input_list.split()
-    except(TypeError, ValueError):
         process_list = [int(no) for no in string_list]
-        processnew_list = ([no for no in string_list if isinstance(no, str)])
+    except(TypeError, ValueError):
+        #processnew_list = ([no for no in string_list if isinstance(no, int)])
+        processnew_list = []
+        for no in process_list:
+            if isinstance(no, int):
+                processnew_list.append(no)
         print(processnew_list)
     else:
         print(process_list)
